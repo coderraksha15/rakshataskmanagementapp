@@ -1,0 +1,267 @@
+@import 'variables.less';
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    background: @backgroundgrey;
+    margin:0;
+    padding: 0;
+  }
+
+  a {
+    color: @green;
+  }
+
+  ul {
+    padding-left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+
+    li {
+      list-style-type: none;
+      padding: 10px 10px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: @darkgrey;
+    max-width: 1280px;
+    margin: 60px auto 0 auto;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+
+    @media screen and (min-width: 1025px) {
+        flex-wrap: nowrap;
+    }
+  }
+
+  .board-column {
+    width: 100%;
+
+    @media screen and (min-width: 600px) {
+        width: 50%;
+    }
+    @media screen and (min-width: 800px) {
+        width: 30%;
+    }
+
+    .task-list {
+      border-left: 1px solid #ccc;
+    }
+
+    &.done-column {
+      .task-list {
+        border-right: 1px solid #ccc;
+      }
+    }
+  }
+
+  .tasks-wrap {
+    padding-top: 50px;
+  }
+
+  .task-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  .task-item {
+    display: block;
+    background: #fff;
+    width: 100%;
+    min-height: 135px;
+    height: auto;
+    border-radius: 0 0 4px 4px;
+    margin: 15px;
+    text-align: left;
+    line-height: 27px;
+    cursor: pointer;
+    position: relative;
+    color: @darkgrey;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0 0 20px 0;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+    will-change: transform;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+
+    .task-item-head {
+      background: @darkgrey;
+      color: white;
+      text-align: left;
+      border-radius: 4px 4px 0 0;
+      padding: 10px 0 10px 15px;
+    }
+
+    .task-item-content {
+      padding: 0 20px;
+    }
+
+    .edit-icon {
+      position: absolute;
+      right: 41px;
+      top: 16px;
+    }
+
+    .delete-icon {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    .task-description {
+      display: none;
+    }
+
+    &.Research {
+      .task-item-head {
+        background: @purple;
+      }
+    }
+    &.Development {
+      .task-item-head {
+        background: @blue;
+      }
+    }
+    &.Design {
+      .task-item-head {
+        background: @orange;
+      }
+    }
+    &.Editorial {
+      .task-item-head {
+        background: @darkgrey;
+      }
+    }
+  }
+
+  .add-icon {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+
+  .task-name {
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    line-height: 22px;
+  }
+
+  .task-type {
+    color: #fff;
+    font-size: 17px;
+  }
+
+  .task-status {
+    font-size: 14px;
+  }
+
+  .delete-task {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.5s ease;
+  }
+
+  .delete-task:hover, .error {
+    opacity: 1;
+  }
+
+  .sort-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+
+    label {
+      font-weight: 600;
+      padding: 6px;
+    }
+  }
+
+  /* Form */
+  .task-form {
+    position: relative;
+    width: 435px;
+    background: #eee;
+    padding: 60px 20px;
+    margin: 0 auto 40px auto;
+
+    fieldset {
+      padding-bottom: 20px;
+      border: none;
+      display: inline-block;
+    }
+
+    label{
+      font-weight: 400;
+      color: #333;
+      margin-right: 10px;
+      display: block;
+      text-align: left;
+      padding-bottom: 3px;
+    }
+
+    input {
+      display: block;
+
+      &[type="text"] {
+        width: 250px;
+      }
+    }
+
+    select {
+      width: 270px;
+      background: #f8f8f8;
+    }
+  }
+
+  input{
+    border-radius: 5px;
+    border: 2px solid #eaeaea;
+    padding: 10px;
+    outline: none;
+  }
+
+  select {
+    width: 200px;
+    height: 35px;
+  }
+
+  .form input, .form textarea {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #e0dede;
+    outline: none;
+    font-size: 12px;
+  }
+  .form div {
+    margin: 20px;
+  }
+
+
+  .error {
+    margin-top: 10px;
+    display: block;
+    color: #e44e42;
+    font-weight: 600;
+  }
